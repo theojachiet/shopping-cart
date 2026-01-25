@@ -1,13 +1,14 @@
 import styles from './navbar.module.css';
+import { Link } from 'react-router';
 
 const Navbar = () => {
     return (
         <>
             <h1 className={styles.temp}>Nav Bar</h1>
             <ul>
-                <li><button>Home</button></li>
-                <li><button>Shop</button></li>
-                <li><button>Cart</button></li>
+                <li><Link to="/home">Home</Link></li>
+                <li><Link to="/store">Store</Link></li>
+                <li><Link to="/cart">Cart</Link></li>
             </ul>
         </>
 

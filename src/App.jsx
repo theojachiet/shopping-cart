@@ -8,8 +8,6 @@ function App() {
     <>
       <Navbar />
       <Outlet />
-      <h1>Hello</h1>
-      <Link to="page">to example page</Link>
     </>
   )
 }
