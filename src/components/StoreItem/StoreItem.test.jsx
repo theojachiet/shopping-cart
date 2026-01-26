@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import StoreItem from "./StoreItem";
 
-describe("Navbar Component", () => {
+describe("StoreItem Component", () => {
     it("renders all sections of the item", () => {
         render(<MemoryRouter>
             <StoreItem />
