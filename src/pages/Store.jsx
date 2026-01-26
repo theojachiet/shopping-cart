@@ -7,12 +7,12 @@ const Store = () => {
     const [items, setItems] = useState(fetchedItems);
 
     function handleIncreaseQuantity(id, currentQuantity) {
-        setItems(list => list.map(item => item.id === id ? { ...item, quantity: currentQuantity + 1 } : item))
+        setItems(list => list.map(item => item.id === id ? { ...item, quantity: Number(currentQuantity) + 1 } : item))
     }
 
     function handleDecreaseQuantity(id, currentQuantity) {
         if (currentQuantity <= 0) return;
-        setItems(list => list.map(item => item.id === id ? { ...item, quantity: currentQuantity - 1 } : item))
+        setItems(list => list.map(item => item.id === id ? { ...item, quantity: Number(currentQuantity) - 1 } : item))
     }
 
     function handleChangeQuantity(id, value) {
