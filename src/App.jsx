@@ -1,23 +1,23 @@
-import { Link } from "react-router"
+import { Link, Outlet } from "react-router"
 import Navbar from "./components/Navbar/Navbar"
-import { Outlet } from "react-router"
+import { useState } from "react"
 
 function App() {
 
   return (
     <>
       <Navbar />
-      <Outlet context={items}/>
+      <Outlet context={[items]} />
     </>
   )
 }
 
 const items = [
-    { id: crypto.randomUUID(), imageUrl: '#', name: 'vest', price: 40 },
-    { id: crypto.randomUUID(), imageUrl: '#', name: 'pants', price: 70 },
-    { id: crypto.randomUUID(), imageUrl: '#', name: 'shirt', price: 20 },
-    { id: crypto.randomUUID(), imageUrl: '#', name: 'slip', price: 2 },
-    { id: crypto.randomUUID(), imageUrl: '#', name: 'sweater', price: 45 },
+  { id: crypto.randomUUID(), imageUrl: '#', name: 'vest', price: 40, quantity: 1 },
+  { id: crypto.randomUUID(), imageUrl: '#', name: 'pants', price: 70, quantity: 1 },
+  { id: crypto.randomUUID(), imageUrl: '#', name: 'shirt', price: 20, quantity: 1 },
+  { id: crypto.randomUUID(), imageUrl: '#', name: 'slip', price: 2, quantity: 1 },
+  { id: crypto.randomUUID(), imageUrl: '#', name: 'sweater', price: 45, quantity: 1 },
 ]
 
 export default App

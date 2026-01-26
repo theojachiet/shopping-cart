@@ -2,7 +2,7 @@ import { useOutletContext } from "react-router";
 import CartItem from "../components/CartItem/CartItem";
 
 const Cart = () => {
-    const items = useOutletContext();
+    const [items, handleChangeQuantity] = useOutletContext();
 
     return (
         <>
