@@ -1,6 +1,9 @@
 import StoreItem from "../components/StoreItem/StoreItem";
+import { useOutletContext } from "react-router";
 
 const Store = () => {
+    const items = useOutletContext();
+    
     return (
         <>
             <p>Shop items here !</p>
@@ -8,13 +11,5 @@ const Store = () => {
         </>
     )
 }
-
-const items = [
-    { id: crypto.randomUUID(), imageUrl: '#', name: 'vest', price: 40 },
-    { id: crypto.randomUUID(), imageUrl: '#', name: 'pants', price: 70 },
-    { id: crypto.randomUUID(), imageUrl: '#', name: 'shirt', price: 20 },
-    { id: crypto.randomUUID(), imageUrl: '#', name: 'slip', price: 2 },
-    { id: crypto.randomUUID(), imageUrl: '#', name: 'sweater', price: 45 },
-]
 
 export default Store;
