@@ -1,6 +1,6 @@
 import styles from './StoreItem.module.css';
 
-const StoreItem = ({ item, handleChangeQuantity, handleIncreaseQuantity, handleDecreaseQuantity }) => {
+const StoreItem = ({ item, handleChangeQuantity, handleIncreaseQuantity, handleDecreaseQuantity, handleAddToCart }) => {
     return (
         <>
             <div className='storeItem' key={item.id}>
@@ -12,7 +12,7 @@ const StoreItem = ({ item, handleChangeQuantity, handleIncreaseQuantity, handleD
                     <input type="text" value={item.quantity} onChange={(e) => handleChangeQuantity(item.id, e.target.value)} />
                     <button onClick={() => handleIncreaseQuantity(item.id, item.quantity)}>+</button>
                 </div>
-                <button className="add-item">
+                <button className="add-item" onClick={() => handleAddToCart(item.id)}>
                     Add to Cart
                 </button>
             </div>

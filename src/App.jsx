@@ -4,10 +4,12 @@ import { useState } from "react"
 
 function App() {
 
+  const [cartItems, setCartItems] = useState([]);
+
   return (
     <>
       <Navbar />
-      <Outlet context={[items]} />
+      <Outlet context={[items, cartItems, setCartItems]} />
     </>
   )
 }

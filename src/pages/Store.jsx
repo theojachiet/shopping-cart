@@ -3,7 +3,7 @@ import StoreItem from "../components/StoreItem/StoreItem";
 import { useOutletContext } from "react-router";
 
 const Store = () => {
-    const [fetchedItems] = useOutletContext();
+    const [fetchedItems, cartItems, setCartItems] = useOutletContext();
     const [items, setItems] = useState(fetchedItems);
 
     function handleIncreaseQuantity(id, currentQuantity) {
@@ -21,6 +21,13 @@ const Store = () => {
         setItems(list => list.map(item => item.id === id ? { ...item, quantity: value } : item))
     }
 
+    function handleAddToCart(id) {
+        const newCartItem = items.find(item => item.id === id);
+        setCartItems([...cartItems,
+            newCartItem
+        ])
+    }
+
     return (
         <>
             <p>Shop items here !</p>
@@ -31,6 +38,7 @@ const Store = () => {
                     handleChangeQuantity={handleChangeQuantity}
                     handleIncreaseQuantity={handleIncreaseQuantity}
                     handleDecreaseQuantity={handleDecreaseQuantity}
+                    handleAddToCart={handleAddToCart}
                 />
             )}
         </>
