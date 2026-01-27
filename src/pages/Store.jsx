@@ -22,6 +22,10 @@ const Store = () => {
     }
 
     function handleAddToCart(id) {
+        if (cartItems.find(item => item.id === id)) {
+            alert('item already in cart');
+            return;
+        }
         const newCartItem = items.find(item => item.id === id);
         setCartItems([...cartItems,
             newCartItem
