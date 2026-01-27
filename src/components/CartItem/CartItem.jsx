@@ -1,18 +1,18 @@
 import styles from './CartItem.module.css';
 
-const CartItem = ({id, imageUrl, name, price}) => {
+const CartItem = ({item, handleChangeQuantity, handleIncreaseQuantity, handleDecreaseQuantity, handleRemoveCart}) => {
     return (
         <>
-            <div className='cart-item' key={id}>
-                <img src={imageUrl} alt="item image" />
-                <p>{name}</p>
+            <div className='cart-item' key={item.id}>
+                <img src={item.imageUrl} alt="item image" />
+                <p>{item.name}</p>
                 <div className="quantity-control">
-                    <button>-</button>
-                    <input type="text" />
-                    <button>+</button>
+                    <button onClick={() => handleDecreaseQuantity(item.id, item.quantity)}>-</button>
+                    <input type="text" value={item.quantity} onChange={(e) => handleChangeQuantity(item.id, e.target.value)} />
+                    <button onClick={() => handleIncreaseQuantity(item.id, item.quantity)}>+</button>
                 </div>
                 <button>Remove</button>
-                <p>{price} €</p>
+                <p>{item.price} €</p>
             </div>
         </>
 
