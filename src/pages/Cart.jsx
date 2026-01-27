@@ -1,26 +1,27 @@
 import { useOutletContext } from "react-router";
 import CartItem from "../components/CartItem/CartItem";
+import { useState } from "react";
 
 const Cart = () => {
-    const [fetchedItems, cartItems, setCartItems] = useOutletContext();
+    const [fetchedItems, cartItems, setCartItems, totalPrice] = useOutletContext();
 
     function handleIncreaseQuantity(id, currentQuantity) {
-        setCartItems(list => list.map(item => item.id === id ? { ...item, quantity: Number(currentQuantity) + 1 } : item))
+        setCartItems(list => list.map(item => item.id === id ? { ...item, quantity: Number(currentQuantity) + 1 } : item));
     }
 
     function handleDecreaseQuantity(id, currentQuantity) {
         if (currentQuantity <= 0) return;
-        setCartItems(list => list.map(item => item.id === id ? { ...item, quantity: Number(currentQuantity) - 1 } : item))
+        setCartItems(list => list.map(item => item.id === id ? { ...item, quantity: Number(currentQuantity) - 1 } : item));
     }
 
     function handleChangeQuantity(id, value) {
         if (!Number.isInteger(Number(value))) return;
 
-        setCartItems(list => list.map(item => item.id === id ? { ...item, quantity: value } : item))
+        setCartItems(list => list.map(item => item.id === id ? { ...item, quantity: value } : item));
     }
 
     function handleRemove(id) {
-        setCartItems(list => list.filter(item => item.id !== id))
+        setCartItems(list => list.filter(item => item.id !== id));
     }
 
     if (cartItems.length === 0) {
@@ -42,6 +43,7 @@ const Cart = () => {
                     handleRemove={handleRemove}
                 />
             )}
+            <p>Total : {totalPrice} €</p>
         </>
     )
 }

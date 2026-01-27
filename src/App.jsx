@@ -1,15 +1,26 @@
 import { Link, Outlet } from "react-router"
 import Navbar from "./components/Navbar/Navbar"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 function App() {
 
   const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    let sum = 0;
+
+    for (let item of cartItems) {
+      sum += item.quantity * item.price;
+    }
+
+    setTotalPrice(sum);
+  }, [cartItems])
 
   return (
     <>
       <Navbar />
-      <Outlet context={[items, cartItems, setCartItems]} />
+      <Outlet context={[items, cartItems, setCartItems, totalPrice]} />
     </>
   )
 }

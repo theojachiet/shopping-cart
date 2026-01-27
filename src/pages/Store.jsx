@@ -3,7 +3,7 @@ import StoreItem from "../components/StoreItem/StoreItem";
 import { useOutletContext } from "react-router";
 
 const Store = () => {
-    const [fetchedItems, cartItems, setCartItems] = useOutletContext();
+    const [fetchedItems, cartItems, setCartItems, totalPrice] = useOutletContext();
     const [items, setItems] = useState(fetchedItems);
 
     function handleIncreaseQuantity(id, currentQuantity) {
@@ -22,14 +22,17 @@ const Store = () => {
     }
 
     function handleAddToCart(id) {
+        //Check if its not already in the cart
         if (cartItems.find(item => item.id === id)) {
             alert('item already in cart');
             return;
         }
+
+        //Add it
         const newCartItem = items.find(item => item.id === id);
         setCartItems([...cartItems,
             newCartItem
-        ])
+        ]);
     }
 
     return (
