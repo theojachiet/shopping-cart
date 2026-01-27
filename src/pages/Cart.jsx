@@ -10,12 +10,23 @@ const Cart = () => {
     }
 
     function handleDecreaseQuantity(id, currentQuantity) {
-        if (currentQuantity <= 0) return;
+        //Remove if quantity is 0 or less
+        if (currentQuantity === 1 || currentQuantity <= 0) {
+            handleRemove(id);
+            return;
+        }
+
         setCartItems(list => list.map(item => item.id === id ? { ...item, quantity: Number(currentQuantity) - 1 } : item));
     }
 
     function handleChangeQuantity(id, value) {
         if (!Number.isInteger(Number(value))) return;
+
+        //Remove if 0 is typed
+        if (Number(value) === 0 && value != '') {
+            handleRemove(id);
+            return;
+        }
 
         setCartItems(list => list.map(item => item.id === id ? { ...item, quantity: value } : item));
     }
