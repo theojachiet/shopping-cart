@@ -1,9 +1,9 @@
 import styles from './StoreItem.module.css';
 
-const StoreItem = ({ item, handleChangeQuantity, handleIncreaseQuantity, handleDecreaseQuantity, handleAddToCart }) => {
+const StoreItem = ({ key, item, handleChangeQuantity, handleIncreaseQuantity, handleDecreaseQuantity, handleAddToCart }) => {
     return (
         <>
-            <div className='storeItem' key={item.id}>
+            <div className='storeItem' key={key}>
                 <img src={item.imageUrl} alt="item image" />
                 <div className="item-name">{item.name}</div>
                 <div className="item-price">{item.price} €</div>

@@ -6,7 +6,9 @@ import StoreItem from "./StoreItem";
 describe("StoreItem Component", () => {
     it("renders all sections of the item", () => {
         render(<MemoryRouter>
-            <StoreItem />
+            <StoreItem
+                key={1} item={{ id: 1, imageUrl: '#', name: 'vest', price: 40, quantity: 1 }}
+            />
         </MemoryRouter>);
 
         //image
