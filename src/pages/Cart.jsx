@@ -19,6 +19,10 @@ const Cart = () => {
         setCartItems(list => list.map(item => item.id === id ? { ...item, quantity: value } : item))
     }
 
+    function handleRemove(id) {
+        setCartItems(list => list.filter(item => item.id !== id))
+    }
+
     if (cartItems.length === 0) {
         return (
             <p>No items in your cart yet !</p>
@@ -35,6 +39,7 @@ const Cart = () => {
                     handleIncreaseQuantity={handleIncreaseQuantity}
                     handleDecreaseQuantity={handleDecreaseQuantity}
                     handleChangeQuantity={handleChangeQuantity}
+                    handleRemove={handleRemove}
                 />
             )}
         </>
