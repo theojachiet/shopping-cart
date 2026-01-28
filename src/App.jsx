@@ -6,19 +6,24 @@ function App() {
 
   const [items, setItems] = useState([]);
 
+  const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  function formatProducts(data) {
+    return data.map(item => ({
+      id: item.id,
+      imageUrl: item.image,
+      name: item.title,
+      price: item.price,
+      quantity: 1,
+    }))
+  }
+
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
       .then(response => response.json())
-      .then(data => data.map(item => setItems([
-        ...items,
-        { id: item.id, imageUrl: item.image, name: item.title, price: item.price }
-      ])));
+      .then(data => setItems(formatProducts(data)));
   }, [])
-
-  console.log(items);
-
-  const [cartItems, setCartItems] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     let sum = 0;
