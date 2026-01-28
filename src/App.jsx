@@ -1,13 +1,12 @@
 import { Link, Outlet } from "react-router"
 import Navbar from "./components/Navbar/Navbar"
 import { useEffect, useState } from "react"
+import ErrorPage from "./pages/ErrorPage";
 
-function App() {
-
+const useItems = () => {
   const [items, setItems] = useState([]);
-
-  const [cartItems, setCartItems] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   function formatProducts(data) {
     return data.map(item => ({
@@ -21,9 +20,25 @@ function App() {
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
-      .then(response => response.json())
-      .then(data => setItems(formatProducts(data)));
+      .then(response => {
+        if (response.status >= 400) {
+          throw new Error("Server Error");
+        }
+        return response.json()
+      })
+      .then(data => setItems(formatProducts(data)))
+      .catch((error) => setError(error))
+      .finally(() => setLoading(false));
   }, [])
+
+  return { items, error, loading }
+}
+
+function App() {
+
+  const { items, error, loading } = useItems();
+  const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     let sum = 0;
@@ -35,6 +50,20 @@ function App() {
     setTotalPrice(sum);
   }, [cartItems])
 
+  if (loading) return (
+    <>
+      <Navbar />
+      <p>Loading...</p>
+    </>
+  )
+
+  if (error) return (
+    <>
+      <Navbar />
+      <ErrorPage />
+    </>
+  )
+
   return (
     <>
       <Navbar />
@@ -42,13 +71,5 @@ function App() {
     </>
   )
 }
-
-// const items = [
-//   { id: crypto.randomUUID(), imageUrl: '#', name: 'vest', price: 40, quantity: 1 },
-//   { id: crypto.randomUUID(), imageUrl: '#', name: 'pants', price: 70, quantity: 1 },
-//   { id: crypto.randomUUID(), imageUrl: '#', name: 'shirt', price: 20, quantity: 1 },
-//   { id: crypto.randomUUID(), imageUrl: '#', name: 'slip', price: 2, quantity: 1 },
-//   { id: crypto.randomUUID(), imageUrl: '#', name: 'sweater', price: 45, quantity: 1 },
-// ]
 
 export default App
