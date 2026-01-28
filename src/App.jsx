@@ -4,6 +4,19 @@ import { useEffect, useState } from "react"
 
 function App() {
 
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then(response => response.json())
+      .then(data => data.map(item => setItems([
+        ...items,
+        { id: item.id, imageUrl: item.image, name: item.title, price: item.price }
+      ])));
+  }, [])
+
+  console.log(items);
+
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -25,12 +38,12 @@ function App() {
   )
 }
 
-const items = [
-  { id: crypto.randomUUID(), imageUrl: '#', name: 'vest', price: 40, quantity: 1 },
-  { id: crypto.randomUUID(), imageUrl: '#', name: 'pants', price: 70, quantity: 1 },
-  { id: crypto.randomUUID(), imageUrl: '#', name: 'shirt', price: 20, quantity: 1 },
-  { id: crypto.randomUUID(), imageUrl: '#', name: 'slip', price: 2, quantity: 1 },
-  { id: crypto.randomUUID(), imageUrl: '#', name: 'sweater', price: 45, quantity: 1 },
-]
+// const items = [
+//   { id: crypto.randomUUID(), imageUrl: '#', name: 'vest', price: 40, quantity: 1 },
+//   { id: crypto.randomUUID(), imageUrl: '#', name: 'pants', price: 70, quantity: 1 },
+//   { id: crypto.randomUUID(), imageUrl: '#', name: 'shirt', price: 20, quantity: 1 },
+//   { id: crypto.randomUUID(), imageUrl: '#', name: 'slip', price: 2, quantity: 1 },
+//   { id: crypto.randomUUID(), imageUrl: '#', name: 'sweater', price: 45, quantity: 1 },
+// ]
 
 export default App
