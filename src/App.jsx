@@ -37,12 +37,12 @@ function App() {
   return (
     <>
       <Navbar />
-      <Outlet context={{
+      <Outlet context={[
         items,
         cartItems,
         setCartItems,
         totalPrice
-      }} />
+      ]} />
     </>
   )
 }
