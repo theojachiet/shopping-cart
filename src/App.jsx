@@ -27,13 +27,15 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <Outlet context={[
-        items,
-        cartItems,
-        setCartItems,
-        totalPrice
-      ]} />
+      <div className="general-container">
+        <Navbar />
+        <Outlet context={[
+          items,
+          cartItems,
+          setCartItems,
+          totalPrice
+        ]} />
+      </div>
     </>
   )
 }

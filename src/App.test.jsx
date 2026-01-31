@@ -83,7 +83,7 @@ describe('App component', () => {
         json: () => Promise.resolve({}),
       })
     );
-
+    
     const { result } = renderHook(() => useItems());
 
     await waitFor(() => {

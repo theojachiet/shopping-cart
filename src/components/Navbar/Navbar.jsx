@@ -4,12 +4,14 @@ import { Link } from 'react-router';
 const Navbar = () => {
     return (
         <>
-            <h1 className={styles.temp}>Nav Bar</h1>
-            <ul>
-                <li><Link to="/home">Home</Link></li>
-                <li><Link to="/store">Store</Link></li>
-                <li><Link to="/cart">Cart</Link></li>
-            </ul>
+            <header>
+                <h1>RANDSHOP</h1>
+                <ul>
+                    <li><Link to="/home">HOME</Link></li>
+                    <li><Link to="/store">STORE</Link></li>
+                    <li><Link to="/cart">CART</Link></li>
+                </ul>
+            </header>
         </>
 
     )
