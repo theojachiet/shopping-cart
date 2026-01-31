@@ -1,4 +1,44 @@
 section {
     background-color: #fff;
-    height: 100%;
+    height: 88%;
+    display: flex;
+    align-items: center;
+}
+
+section img {
+    max-width: 50%;
+}
+
+section .text {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+h2 {
+    color: #05678e;
+    font-weight: 100;
+    font-size: 3rem;
+}
+
+.welcome {
+    font-weight: 700;
+    font-size: 5rem;
+}
+
+p {
+    color: #02c299;
+}
+
+.now {
+    width: 30%;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    color: white;
+    background-color: #05678e;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
 }
