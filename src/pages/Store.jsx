@@ -1,6 +1,7 @@
 import { useState } from "react";
 import StoreItem from "../components/StoreItem/StoreItem";
 import { useOutletContext } from "react-router";
+import styles from './Store.module.css'
 
 const Store = () => {
     const [fetchedItems, cartItems, setCartItems, totalPrice] = useOutletContext();
@@ -37,17 +38,20 @@ const Store = () => {
 
     return (
         <>
-            <p>Shop items here !</p>
-            {items.map(item =>
-                <StoreItem
-                    key={item.id}
-                    item={item}
-                    handleChangeQuantity={handleChangeQuantity}
-                    handleIncreaseQuantity={handleIncreaseQuantity}
-                    handleDecreaseQuantity={handleDecreaseQuantity}
-                    handleAddToCart={handleAddToCart}
-                />
-            )}
+            <section>
+                <div className={styles.grid}>
+                    {items.map(item =>
+                        <StoreItem
+                            key={item.id}
+                            item={item}
+                            handleChangeQuantity={handleChangeQuantity}
+                            handleIncreaseQuantity={handleIncreaseQuantity}
+                            handleDecreaseQuantity={handleDecreaseQuantity}
+                            handleAddToCart={handleAddToCart}
+                        />
+                    )}
+                </div>
+            </section>
         </>
     )
 }

@@ -1,0 +1,9 @@
+section {
+    background-color: #fff;
+    overflow: auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
