@@ -1,0 +1,46 @@
+.storeItem {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.storeItem img {
+    max-height: 200px;
+    width: auto;
+}
+
+.info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.counter {
+    display: flex;
+    gap: 10px;
+}
+
+/* STYLING */
+
+.name {
+    font-weight: 500;
+}
+
+input {
+    max-width: 50px;
+    text-align: center;
+}
+
+.addItem {
+    appearance: none;
+    border: none;
+    background-color: #02c299;
+    color: white;
+    font-weight: bold;
+    width: 150px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+}

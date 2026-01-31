@@ -4,6 +4,9 @@ section {
 }
 
 .grid {
+    margin-top: 650px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 50px;
+    padding: 2rem;
 }
