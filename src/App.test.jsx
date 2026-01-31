@@ -1,8 +1,31 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
 import { createMemoryRouter, RouterProvider } from 'react-router'
 import routes from './routes';
+import { renderHook, waitFor } from "@testing-library/react";
+import useItems from './useItems';
+
+beforeEach(() => {
+  global.fetch = vi.fn(() =>
+    Promise.resolve({
+      status: 200,
+      json: () => Promise.resolve([
+        {
+          id: 1,
+          title: "vest",
+          price: 10,
+          image: "img.jpg"
+        }
+      ])
+    })
+  );
+})
+
+afterEach(() => {
+  vi.restoreAllMocks();
+});
+
 
 describe('App component', () => {
   it('adding an item updates cart', async () => {
@@ -12,9 +35,9 @@ describe('App component', () => {
       initialEntries: ['/store'],
     })
 
-    render(<RouterProvider router={router}/>)
+    render(<RouterProvider router={router} />)
 
-    const addToCartButton = screen.getAllByRole('button', { name: /add to cart/i })[0];
+    const addToCartButton = await screen.findByRole('button', { name: /add to cart/i });
     const cartLink = screen.getByRole('link', { name: /cart/i })
 
     await user.click(addToCartButton);
@@ -22,5 +45,28 @@ describe('App component', () => {
 
     expect(await screen.findByText('vest')).toBeInTheDocument();
     expect(screen.getByText(/total/i)).toHaveTextContent('€')
+  });
+
+  it("fetches and formats products", async () => {
+    const { result } = renderHook(() => useItems());
+
+    // initially loading
+    expect(result.current.loading).toBe(true);
+
+    await waitFor(() => {
+      expect(result.current.loading).toBe(false);
+    });
+
+    expect(result.current.items).toEqual([
+      {
+        id: 1,
+        name: "vest",
+        price: 10,
+        imageUrl: "img.jpg",
+        quantity: 1
+      }
+    ]);
+
+    expect(result.current.error).toBe(null);
   });
 });
