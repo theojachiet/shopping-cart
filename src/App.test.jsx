@@ -74,4 +74,23 @@ describe('App component', () => {
     const { result } = renderHook(() => useItems());
     expect(result.current.loading).toBe(true);
   });
+
+  it("sets error when fetch fails", async () => {
+
+    global.fetch = vi.fn(() =>
+      Promise.resolve({
+        status: 500,
+        json: () => Promise.resolve({}),
+      })
+    );
+
+    const { result } = renderHook(() => useItems());
+
+    await waitFor(() => {
+      expect(result.current.loading).toBe(false);
+    });
+
+    expect(result.current.error).toBeInstanceOf(Error);
+    expect(result.current.items).toEqual([]);
+  });
 });
