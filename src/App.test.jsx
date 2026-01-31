@@ -69,4 +69,9 @@ describe('App component', () => {
 
     expect(result.current.error).toBe(null);
   });
+
+  it("loading is true on first render", () => {
+    const { result } = renderHook(() => useItems());
+    expect(result.current.loading).toBe(true);
+  });
 });

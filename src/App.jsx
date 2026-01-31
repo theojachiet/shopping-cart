@@ -1,6 +1,6 @@
-import { Link, Outlet } from "react-router"
+import { Outlet } from "react-router"
 import Navbar from "./components/Navbar/Navbar"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import ErrorPage from "./pages/ErrorPage";
 import useItems from "./useItems";
 
