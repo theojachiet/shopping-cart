@@ -8,17 +8,8 @@ function App() {
 
   const { items, error, loading } = useItems();
   const [cartItems, setCartItems] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
 
-  useEffect(() => {
-    let sum = 0;
-
-    for (let item of cartItems) {
-      sum += item.quantity * item.price;
-    }
-
-    setTotalPrice(sum);
-  }, [cartItems])
+  const totalPrice = cartItems.reduce((sum, item) => sum + item.quantity * item.price, 0);
 
   if (loading) return (
     <>
