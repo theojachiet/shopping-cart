@@ -60,7 +60,7 @@ const Cart = () => {
             </div>
             <div className={styles.summaryContainer}>
                 <h3>Shopping Summary</h3>
-                <p>Number of different Items : <strong>{cartItems.length}</strong></p>
+                <p>Total number of items : <strong>{cartItems.reduce((sum, item) => sum + Number(item.quantity), 0)}</strong></p>
                 <p>Total Price : <strong>{totalPrice} €</strong></p>
             </div>
         </section>
