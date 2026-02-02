@@ -1,0 +1,32 @@
+.cartItem {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  border-bottom: 2px solid rgb(204, 204, 204);
+  padding-bottom: 20px;
+  margin: 20px 0px;
+}
+
+.infoText {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+}
+
+.cartItem img {
+  max-width: 150px;
+}
+
+.cartItem .name {
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.price {
+    font-size: 1.2rem;
+}

@@ -9,7 +9,7 @@ function App() {
   const { items, error, loading } = useItems();
   const [cartItems, setCartItems] = useState([]);
 
-  const totalPrice = cartItems.reduce((sum, item) => sum + item.quantity * item.price, 0);
+  const totalPrice = Math.round(cartItems.reduce((sum, item) => sum + item.quantity * item.price, 0) * 100)/100;
 
   if (loading) return (
     <>
