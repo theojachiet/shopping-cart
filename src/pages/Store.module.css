@@ -1,6 +1,7 @@
 section {
     background-color: #fff;
     overflow: auto;
+    margin: 10px 50px;
 }
 
 .grid {

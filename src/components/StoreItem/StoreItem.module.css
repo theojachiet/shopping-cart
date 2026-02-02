@@ -2,6 +2,12 @@
     display: flex;
     gap: 20px;
     align-items: center;
+    padding: 20px;
+
+    background-color: whitesmoke;
+    border: 2px solid whitesmoke;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px 0px rgb(207, 207, 207);
 }
 
 .storeItem img {
