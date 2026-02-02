@@ -27,7 +27,6 @@ function App() {
 
   return (
     <>
-      <div className="general-container">
         <Navbar />
         <Outlet context={[
           items,
@@ -35,7 +34,6 @@ function App() {
           setCartItems,
           totalPrice
         ]} />
-      </div>
     </>
   )
 }

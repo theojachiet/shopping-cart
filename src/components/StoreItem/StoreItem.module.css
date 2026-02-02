@@ -36,7 +36,7 @@ input {
 .addItem {
     appearance: none;
     border: none;
-    background-color: #02c299;
+    background-color: var(--bright-green);
     color: white;
     font-weight: bold;
     width: 150px;

@@ -17,7 +17,7 @@ section .text {
 }
 
 h2 {
-    color: #05678e;
+    color: var(--deep-blue-green);
     font-weight: 100;
     font-size: 3rem;
 }
@@ -28,7 +28,7 @@ h2 {
 }
 
 p {
-    color: #02c299;
+    color: var(--bright-green);
 }
 
 .now {
@@ -37,7 +37,7 @@ p {
     padding: 1rem 2rem;
     border-radius: 50px;
     color: white;
-    background-color: #05678e;
+    background-color: var(--deep-blue-green);
     font-weight: bold;
     font-size: 1.2rem;
     text-align: center;
