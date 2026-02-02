@@ -1,5 +1,6 @@
 import { useOutletContext } from "react-router";
 import CartItem from "../components/CartItem/CartItem";
+import styles from './Cart.module.css'
 
 const Cart = () => {
     const [fetchedItems, cartItems, setCartItems, totalPrice] = useOutletContext();
@@ -36,25 +37,33 @@ const Cart = () => {
 
     if (cartItems.length === 0) {
         return (
-            <p>No items in your cart yet !</p>
+            <div className={styles.emptyContainer}>
+                <p className={styles.emptyParagraph}>No items in your cart.... yet !</p>
+                <img src="/src/assets/images/empty-cart.png" alt="empty cart" />
+            </div>
         )
     }
 
     return (
-        <>
-            <p>See your cart items here</p>
-            {cartItems.map(item =>
-                <CartItem
-                    key={item.id}
-                    item={item}
-                    handleIncreaseQuantity={handleIncreaseQuantity}
-                    handleDecreaseQuantity={handleDecreaseQuantity}
-                    handleChangeQuantity={handleChangeQuantity}
-                    handleRemove={handleRemove}
-                />
-            )}
-            <p>Total : {totalPrice} €</p>
-        </>
+        <section className={styles.cartSection}>
+            <div className={styles.itemsContainer}>
+                {cartItems.map(item =>
+                    <CartItem
+                        key={item.id}
+                        item={item}
+                        handleIncreaseQuantity={handleIncreaseQuantity}
+                        handleDecreaseQuantity={handleDecreaseQuantity}
+                        handleChangeQuantity={handleChangeQuantity}
+                        handleRemove={handleRemove}
+                    />
+                )}
+            </div>
+            <div className={styles.summaryContainer}>
+                <h3>Shopping Summary</h3>
+                <p>Number of different Items : <strong>{cartItems.length}</strong></p>
+                <p>Total Price : <strong>{totalPrice} €</strong></p>
+            </div>
+        </section>
     )
 }
 

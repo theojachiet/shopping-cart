@@ -27,7 +27,7 @@ h2 {
     font-size: 5rem;
 }
 
-p {
+.intro {
     color: var(--bright-green);
 }
 
