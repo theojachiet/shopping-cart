@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './StoreItem.module.css';
 
-const StoreItem = ({ item, handleChangeQuantity, handleIncreaseQuantity, handleDecreaseQuantity, handleAddToCart }) => {
+const StoreItem = ({ item, handleChangeQuantity, handleIncreaseQuantity, handleDecreaseQuantity, handleAddToCart, cartItems }) => {
     
     return (
         <>
@@ -15,7 +15,7 @@ const StoreItem = ({ item, handleChangeQuantity, handleIncreaseQuantity, handleD
                         <input type="text" value={item.quantity} onChange={(e) => handleChangeQuantity(item.id, e.target.value)} />
                         <button onClick={() => handleIncreaseQuantity(item.id, item.quantity)}>+</button>
                     </div>
-                    {item.isInCart ? (<button className={styles.itemAdded} >Added to Cart</button>) : (<button className={styles.addItem} onClick={() => {
+                    {cartItems.some(o => o.id === item.id) ? (<button className={styles.itemAdded} >Added to Cart</button>) : (<button className={styles.addItem} onClick={() => {
                         handleAddToCart(item.id);
                         item.isInCart = true;
                     }

@@ -48,6 +48,7 @@ const Store = () => {
                             handleIncreaseQuantity={handleIncreaseQuantity}
                             handleDecreaseQuantity={handleDecreaseQuantity}
                             handleAddToCart={handleAddToCart}
+                            cartItems={cartItems}
                         />
                     )}
                 </div>
