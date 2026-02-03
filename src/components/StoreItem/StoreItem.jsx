@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import styles from './StoreItem.module.css';
 
 const StoreItem = ({ item, handleChangeQuantity, handleIncreaseQuantity, handleDecreaseQuantity, handleAddToCart }) => {
+    
     return (
         <>
             <div className={styles.storeItem}>
@@ -13,9 +15,13 @@ const StoreItem = ({ item, handleChangeQuantity, handleIncreaseQuantity, handleD
                         <input type="text" value={item.quantity} onChange={(e) => handleChangeQuantity(item.id, e.target.value)} />
                         <button onClick={() => handleIncreaseQuantity(item.id, item.quantity)}>+</button>
                     </div>
-                    <button className={styles.addItem} onClick={() => handleAddToCart(item.id)}>
+                    {item.isInCart ? (<button>Added to Cart</button>) : (<button className={styles.addItem} onClick={() => {
+                        handleAddToCart(item.id);
+                        item.isInCart = true;
+                    }
+                    }>
                         Add to Cart
-                    </button>
+                    </button>)}
                 </div>
             </div>
         </>

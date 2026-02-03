@@ -28,6 +28,7 @@ function formatProducts(data) {
         name: item.title,
         price: item.price,
         quantity: 1,
+        isInCart: false,
     }))
 }
 
