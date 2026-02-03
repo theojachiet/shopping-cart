@@ -15,7 +15,7 @@ const StoreItem = ({ item, handleChangeQuantity, handleIncreaseQuantity, handleD
                         <input type="text" value={item.quantity} onChange={(e) => handleChangeQuantity(item.id, e.target.value)} />
                         <button onClick={() => handleIncreaseQuantity(item.id, item.quantity)}>+</button>
                     </div>
-                    {item.isInCart ? (<button>Added to Cart</button>) : (<button className={styles.addItem} onClick={() => {
+                    {item.isInCart ? (<button className={styles.itemAdded} >Added to Cart</button>) : (<button className={styles.addItem} onClick={() => {
                         handleAddToCart(item.id);
                         item.isInCart = true;
                     }

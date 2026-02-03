@@ -79,6 +79,7 @@ h6 {
 :root {
   --deep-blue-green: #05678e;
   --bright-green: #02c299;
+  --dimmed-red: #992f2f;
 
   --primary-color: var(var(--bright-green));
   --secondary-color: var(var(--deep-blue-green));

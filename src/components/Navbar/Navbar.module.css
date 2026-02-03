@@ -27,7 +27,7 @@ ul {
     font-weight: bold;
     position: relative;
     bottom: 12px;
-    background-color: #992f2f;
+    background-color: var(--dimmed-red);
     padding: 3px 8px;
     border-radius: 50%;
 }

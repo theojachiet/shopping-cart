@@ -1,52 +1,60 @@
 .storeItem {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    padding: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
 
-    background-color: whitesmoke;
-    border: 2px solid whitesmoke;
-    border-radius: 20px;
-    box-shadow: 10px 10px 20px 0px rgb(207, 207, 207);
+  background-color: whitesmoke;
+  border: 2px solid whitesmoke;
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px 0px rgb(207, 207, 207);
 }
 
 .storeItem img {
-    max-height: 200px;
-    width: auto;
+  max-height: 200px;
+  width: auto;
 }
 
 .info {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10px;
 }
 
 .counter {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 /* STYLING */
 
 .name {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 input {
-    max-width: 50px;
-    text-align: center;
+  max-width: 50px;
+  text-align: center;
+}
+
+.addItem,
+.itemAdded {
+  appearance: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  width: 150px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  cursor: pointer;
 }
 
 .addItem {
-    appearance: none;
-    border: none;
-    background-color: var(--bright-green);
-    color: white;
-    font-weight: bold;
-    width: 150px;
-    padding: 10px 20px;
-    border-radius: 15px;
-    cursor: pointer;
+  background-color: var(--bright-green);
+}
+
+.itemAdded {
+    background-color: var(--dimmed-red);
 }
