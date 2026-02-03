@@ -13,21 +13,21 @@ function App() {
 
   if (loading) return (
     <>
-      <Navbar />
+      <Navbar cartItems={cartItems} />
       <p>Loading...</p>
     </>
   )
 
   if (error) return (
     <>
-      <Navbar />
+      <Navbar cartItems={cartItems} />
       <ErrorPage />
     </>
   )
 
   return (
     <>
-        <Navbar />
+        <Navbar cartItems={cartItems} />
         <Outlet context={[
           items,
           cartItems,

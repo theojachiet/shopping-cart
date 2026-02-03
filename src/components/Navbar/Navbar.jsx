@@ -1,7 +1,7 @@
 import styles from './Navbar.module.css';
 import { Link } from 'react-router';
 
-const Navbar = () => {
+const Navbar = ({cartItems}) => {
     return (
         <>
             <header>
@@ -9,7 +9,7 @@ const Navbar = () => {
                 <ul>
                     <li><Link to="/home">HOME</Link></li>
                     <li><Link to="/store">STORE</Link></li>
-                    <li><Link to="/cart">CART</Link></li>
+                    <li><Link to="/cart">CART <span className={styles.cartCount}>{cartItems.length}</span></Link></li>
                 </ul>
             </header>
         </>
