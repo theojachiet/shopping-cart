@@ -11,9 +11,9 @@ const StoreItem = ({ item, handleChangeQuantity, handleIncreaseQuantity, handleD
                     <div className={styles.name}>{item.name}</div>
                     <div className="item-price">{item.price} €</div>
                     <div className={styles.counter}>
-                        <button onClick={() => handleDecreaseQuantity(item.id, item.quantity)}>-</button>
+                        <button className={styles.quantityButton} onClick={() => handleDecreaseQuantity(item.id, item.quantity)}>-</button>
                         <input type="text" value={item.quantity} onChange={(e) => handleChangeQuantity(item.id, e.target.value)} />
-                        <button onClick={() => handleIncreaseQuantity(item.id, item.quantity)}>+</button>
+                        <button className={styles.quantityButton} onClick={() => handleIncreaseQuantity(item.id, item.quantity)}>+</button>
                     </div>
                     {cartItems.some(o => o.id === item.id) ? (<button className={styles.itemAdded} >Added to Cart</button>) : (<button className={styles.addItem} onClick={() => {
                         handleAddToCart(item.id);

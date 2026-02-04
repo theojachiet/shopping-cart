@@ -65,3 +65,12 @@ input {
 .itemAdded {
   background-color: var(--dimmed-red);
 }
+
+.quantityButton {
+  border: 2px solid gray;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 8px 12px;
+  border-radius: 10px;
+  line-height: 1;
+}
