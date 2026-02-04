@@ -18,7 +18,12 @@
 @media (max-width: 50em) {
   .storeItem img {
     max-height: 150px;
-    max-width: 140px;
+    max-width: 120px;
+  }
+
+  .storeItem {
+    box-shadow: none;
+    max-width: 90%;
   }
 }
 
