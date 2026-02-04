@@ -86,7 +86,7 @@ h6 {
   --secondary-color: var(var(--deep-blue-green));
 }
 
-body {
+main {
   display: flex;
   justify-content: center;
   align-items: center;

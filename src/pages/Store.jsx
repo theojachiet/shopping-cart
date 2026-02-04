@@ -37,23 +37,21 @@ const Store = () => {
     }
 
     return (
-        <>
-            <section>
-                <div className={styles.grid}>
-                    {items.map(item =>
-                        <StoreItem
-                            key={item.id}
-                            item={item}
-                            handleChangeQuantity={handleChangeQuantity}
-                            handleIncreaseQuantity={handleIncreaseQuantity}
-                            handleDecreaseQuantity={handleDecreaseQuantity}
-                            handleAddToCart={handleAddToCart}
-                            cartItems={cartItems}
-                        />
-                    )}
-                </div>
-            </section>
-        </>
+        <main>
+            <div className={styles.grid}>
+                {items.map(item =>
+                    <StoreItem
+                        key={item.id}
+                        item={item}
+                        handleChangeQuantity={handleChangeQuantity}
+                        handleIncreaseQuantity={handleIncreaseQuantity}
+                        handleDecreaseQuantity={handleDecreaseQuantity}
+                        handleAddToCart={handleAddToCart}
+                        cartItems={cartItems}
+                    />
+                )}
+            </div>
+        </main>
     )
 }
 

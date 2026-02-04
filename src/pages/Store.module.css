@@ -1,6 +1,5 @@
-section {
+main {
     background-color: #fff;
-    overflow: auto;
     margin: 10px 50px;
 }
 
@@ -10,4 +9,10 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 50px;
     padding: 2rem;
+}
+
+@media (max-width: 50em) {
+    main {
+        margin: 0;
+    }
 }
