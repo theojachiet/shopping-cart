@@ -22,7 +22,7 @@
 /* SUMMARY  */
 
 .summaryContainer {
-  min-width: 400px;
+  min-width: min(400px, 95%);
   margin: 20px 20px;
   padding-bottom: 40px;
 
@@ -56,4 +56,15 @@
 /* ITEMS CONTAINER  */
 .itemsContainer {
   width: 100%;
+}
+
+@media (max-width:50em) {
+  .cartSection {
+    flex-direction: column;
+    margin: 10px;
+  }
+
+  .summaryContainer {
+    margin: auto;
+  }
 }

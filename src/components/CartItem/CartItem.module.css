@@ -8,15 +8,15 @@
 }
 
 .infoText {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .controls {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .cartItem img {
@@ -24,41 +24,52 @@
 }
 
 .cartItem .name {
-    font-weight: 500;
-    font-size: 1.2rem;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 
 .price {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 /* BUTTONS */
 
 .quantityControl {
-    display: flex;
-    gap: 5px;
+  display: flex;
+  gap: 5px;
 }
 
 .quantityControl input {
-    border: 2px solid rgb(226, 226, 226);
-    border-radius: 10px;
-    min-width: 100px;
-    padding: 5px 20px;
-    font-size: 1.2rem;
-    font-weight: 500;
+  border: 2px solid rgb(226, 226, 226);
+  border-radius: 10px;
+  min-width: 100px;
+  padding: 5px 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .remove {
-    background-color: rgb(184, 24, 24);
-    border: none;
-    border-radius: 10px;
-    padding: 8px;
+  background-color: rgb(184, 24, 24);
+  border: none;
+  border-radius: 10px;
+  padding: 8px;
 }
 
 .cartButton {
-    border: 2px solid gray;
-    font-weight: bold;
-    font-size: 1.3rem;
-    padding: 8px 12px ;
-    border-radius: 10px;
+  border: 2px solid gray;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+@media (max-width: 50em) {
+  .cartItem {
+    gap: 20px;
+  }
+
+  .cartItem img {
+    max-height: 150px;
+    max-width: 100px;
+  }
 }
