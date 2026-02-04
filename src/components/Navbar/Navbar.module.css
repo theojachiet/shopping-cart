@@ -6,7 +6,11 @@ header {
 
     background-color: #05678e;
     color: white;
-    width: 100vw;
+    width: 100%;
+}
+
+svg {
+    display: none;
 }
 
 a {
@@ -30,4 +34,14 @@ ul {
     background-color: var(--dimmed-red);
     padding: 3px 8px;
     border-radius: 50%;
+}
+
+@media (max-width: 50em) {
+    ul {
+        display: none;
+    }
+
+    svg {
+        display: block;
+    }
 }
