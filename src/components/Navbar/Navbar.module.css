@@ -6,7 +6,7 @@ header {
 
     background-color: #05678e;
     color: white;
-    width: 100%;
+    width: 100vw;
 }
 
 svg {
@@ -37,6 +37,10 @@ ul {
 }
 
 @media (max-width: 50em) {
+    header {
+        padding: 1rem;
+    }
+
     ul {
         display: none;
     }
