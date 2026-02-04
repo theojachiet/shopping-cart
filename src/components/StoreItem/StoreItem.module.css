@@ -20,11 +20,6 @@
     max-height: 150px;
     max-width: 120px;
   }
-
-  .storeItem {
-    box-shadow: none;
-    max-width: 90%;
-  }
 }
 
 .info {
