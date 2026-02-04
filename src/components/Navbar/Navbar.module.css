@@ -41,11 +41,25 @@ ul {
         padding: 1rem 2rem;
     }
 
-    ul {
+    ul.desktopMenu {
         display: none;
     }
 
     .menuToggle {
         display: block;
+        background-color: transparent;
+        border: none;
+    }
+
+    .mobileMenu {
+        flex-direction: column;
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        text-align: center;
+        padding: 2rem 0;
+        background-color: var(--deep-blue-green);
     }
 }
